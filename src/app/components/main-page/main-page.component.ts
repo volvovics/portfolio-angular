@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -10,4 +11,10 @@ import { CommonModule } from '@angular/common';
 })
 export class MainPageComponent {
 
+  constructor(private _router: Router) { }
+
+  public myEmail:string = 'volvovics@yahoo.com';
+  navigateTo(route:string){
+    this._router.navigateByUrl(route);
+  }
 }

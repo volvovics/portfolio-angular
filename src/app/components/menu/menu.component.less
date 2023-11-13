@@ -1,0 +1,45 @@
+ul.menu {
+    --bgColor:#2c2d2f;
+    --bgActiveColor:#6d0321;
+    --bgHoverColor:#3B3D3F;
+    --activeTextColor:#FFF;
+    --textColor:#BEBEBE;
+
+    background-color: var(--bgColor);
+	color: var(--textColor);
+	display: block;
+	height: 50px;
+	margin: 20px auto;
+    list-style: none;
+    
+	max-width: 1100px;
+    li{
+        float: left;
+        height: 100%;
+        width: 16.6666%;
+        a{
+            display: block;
+            text-decoration: none;
+            color: var(--textColor);
+            height: 100%;
+            line-height: 50px;
+            text-align: center;
+            background:linear-gradient(to right, var(--bgColor) 50%, var(--bgHoverColor) 50%);
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: 200%;
+            transition: background-position 0.2s ease 0s;
+        }
+        a.active{
+            background:linear-gradient( var(--bgColor) 50%, var(--bgActiveColor) 50% );
+            background-repeat: no-repeat;
+            background-size: 100% 200%;
+            background-position: 0 100%;
+            color: var(--activeTextColor);
+        }
+        a:not(.active):hover{
+            color: var(--activeTextColor);
+            background-position: 100% 0;
+        }
+    }
+}
