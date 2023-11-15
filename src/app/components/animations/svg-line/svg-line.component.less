@@ -1,16 +1,24 @@
+:root{
+    --strokeDashOffset1: 0;
+    --strokeDashOffset2: 0;
+}
 .svg-container{
     position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &.stop-animation svg{
-        animation-play-state: paused;
+        animation-play-state: paused !important;
     }
     svg {
         height:400px;
+        max-height:400px;
         color:white;
-        stroke-dasharray: 270;
+        stroke-dasharray: 0;
         stroke-dashoffset: 0;
         pointer-events: none;
-        animation: animateDash 7s linear alternate infinite;
-        animation-play-state: running;
+        //animation: animateDash 7s linear alternate infinite;
+        animation-play-state: running !important;
     }
     .btn-toggle-animation{
         position:absolute;
@@ -27,8 +35,13 @@
 
 
   
-@keyframes animateDash {
+@keyframes animateDash1 {
     to {
-        stroke-dashoffset:270;
+        stroke-dashoffset:var(--strokeDashOffset1);
+    }
+}
+@keyframes animateDash2 {
+    to {
+        stroke-dashoffset:var(--strokeDashOffset2);
     }
 }

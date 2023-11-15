@@ -9,6 +9,7 @@ export const routes: Routes = [
     { path: 'main', component: MainPageComponent },
     { path: 'recipes', component: RecipesComponent },
     { path: 'animations', component: AnimationsComponent },
+    { path: 'transitions', component: AnimationsComponent },
     { path: '',   redirectTo: '/main', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
