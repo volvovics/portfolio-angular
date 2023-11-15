@@ -1,0 +1,103 @@
+.wrapper{
+  --scrollbar-width:calc(100dvw - 100%);
+  --half-screen-width:calc(50dvw - var(--scrollbar-width) / 2);
+  position:relative;
+
+  .empty{
+    height:50dvh;
+    width:var(--half-screen-width);
+    display:inline-block;
+    overflow:hidden;
+  }
+  .text-div{
+    height:50dvh;
+    width:var(--half-screen-width);
+    display:inline-block;
+    overflow: hidden;
+    position:relative;
+    z-index:-1;
+    span{
+      font-size:3rem;
+      position:absolute;
+      top:50%;
+      left:50%;
+      translate:-50% -50%;
+    }
+  }
+  .screen{
+    box-sizing: border-box;
+    height:50dvh;
+    width:var(--half-screen-width);
+    position:sticky;
+    display:inline-block;
+    background-repeat:no-repeat;
+    overflow: hidden;
+    
+    &:before{
+      content:'';
+      display: block;
+      position:absolute;
+      height:min(100%, var(--half-screen-width) / 2; );
+      aspect-ratio:2/1;
+      background-image: url("/assets/images/harry.jpg");
+      background-size:200%;
+    }
+    
+    &.one{
+      top:0;
+      &:before{
+        bottom:0;
+        right:0;
+      }
+    }
+    &.two{
+      top:0;
+      left:50%;
+      &:before{
+        bottom:0;
+        left:0;
+        background-position: 100% 0;
+      }
+    }
+    &.three{
+      top:50%;
+      &:before{
+        top:0;
+        right:0;
+        background-position: 0 100%;
+      }
+    }
+    &.four{
+      top:50%;
+      left:50%;
+      &:before{
+        top:0;
+        left:0;
+        background-position: 100% 100%;
+      }
+    }
+    &.five{
+      aspect-ratio: initial;
+      width:initial;
+      height:100dvh;
+      width:100%;
+      top:50%;
+      
+      &:before{
+        left:50%;
+        top:14%;
+        translate: -50% 0;
+        aspect-ratio: 1/1;
+        height:min(81dvh, (100dvw - ((100dvw - 100%) / 2 )) / 2 * 0.81; );
+        background-image: url("/assets/images/circle-crop-me.png");
+        background-size:cover;  
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .wrapper .text-div span{
+    display:none;
+  }
+}

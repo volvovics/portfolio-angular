@@ -2,14 +2,14 @@ import { Component, ViewEncapsulation, ElementRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-svg-line',
+  selector: 'app-svg-animation',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './svg-line.component.html',
-  styleUrl: './svg-line.component.less',
+  templateUrl: './svg-animation.component.html',
+  styleUrl: './svg-animation.component.less',
   encapsulation: ViewEncapsulation.None
 })
-export class SvgLineComponent {
+export class SvgAnimationComponent {
   public animationRunning:boolean = true;
 
   constructor(private elRef:ElementRef) {}
