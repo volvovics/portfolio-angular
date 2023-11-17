@@ -1,5 +1,5 @@
 <div class="wrapper">
   <app-menu></app-menu>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
 </div>
 

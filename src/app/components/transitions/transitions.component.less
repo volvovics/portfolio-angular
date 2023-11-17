@@ -1,13 +1,20 @@
+@import "../../../assets/less/variables.less";
+
 .wrapper{
   --scrollbar-width:calc(100dvw - 100%);
+  --screen-width:calc(100dvw - var(--scrollbar-width));
   --half-screen-width:calc(50dvw - var(--scrollbar-width) / 2);
   position:relative;
 
-  .empty{
+  .spacer-corner{
     height:50dvh;
     width:var(--half-screen-width);
     display:inline-block;
     overflow:hidden;
+  }
+  .spacer-line{
+    height:50dvh;
+    width:100%;
   }
   .text-div{
     height:50dvh;
@@ -15,13 +22,15 @@
     display:inline-block;
     overflow: hidden;
     position:relative;
-    z-index:-1;
-    span{
-      font-size:3rem;
+    //z-index:-1;
+    h1{
       position:absolute;
       top:50%;
       left:50%;
       translate:-50% -50%;
+      box-shadow: 0 0 40px 20px @bgDark;
+      background-color:@bgDark;
+      padding:2rem;
     }
   }
   .screen{
@@ -30,7 +39,7 @@
     width:var(--half-screen-width);
     position:sticky;
     display:inline-block;
-    background-repeat:no-repeat;
+    background:@bgDark;
     overflow: hidden;
     
     &:before{
@@ -81,11 +90,11 @@
       width:initial;
       height:100dvh;
       width:100%;
-      top:50%;
+      background: initial;
       
       &:before{
         left:50%;
-        top:14%;
+        top:15%;
         translate: -50% 0;
         aspect-ratio: 1/1;
         height:min(81dvh, (100dvw - ((100dvw - 100%) / 2 )) / 2 * 0.81; );
@@ -96,8 +105,68 @@
   }
 }
 
-@media only screen and (max-width: 1400px) {
-  .wrapper .text-div span{
-    display:none;
+// @media only screen and (max-width: 1400px) {
+//   .wrapper .text-div h1{
+//     display:none;
+//   }
+// }
+
+.make-up .parallax-container{
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+.parallax-content{
+  box-shadow: 0 0 40px 20px @bgDark;
+  background-color:@bgDark;
+  position:relative;
+  padding:2rem;
+  font-size: larger;
+  max-width:300px;
+  margin-bottom:10rem;
+  z-index:1;
+  h1&{
+    font-size:2rem;
+    text-align:center;
+  }
+}
+.full-screen{
+  height:100dvh;
+  width:100%;
+  position:relative;
+  & h1{
+    position:absolute;
+    top:50dvh;
+    left:50%;
+    translate:-50% -50%;
+  }
+}
+.harry-potter .parallax-container{
+  background-size:min(200dvh, calc(var(--screen-width) / 4)) auto;
+  //background-size:auto;
+  background-repeat: no-repeat;
+}
+
+button{
+  color:white;
+  background-color:@green;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: large;
+  border:none;
+  border-radius: 1rem;
+  transition-duration: 0.4s;
+  &:hover{
+      box-shadow: 0px 1px 2px 0px rgba(255,255,255, 0.3);
+      background-color:lighten(@green, 5%)
+  }
+  &.back{
+    position:absolute;
+    bottom:1rem;
+    &.top{
+      left:2rem;
+    }
+    &.info{
+      right:2rem;
+    }
   }
 }

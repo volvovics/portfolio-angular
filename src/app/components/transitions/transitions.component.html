@@ -1,16 +1,61 @@
 <div class="wrapper">
-  <div class="screen one harry"></div>
-  <div class="text-div"><span>How I write code</span></div>
-  <div class="empty"></div>
-  <div class="empty"></div>
-  <div class="text-div"><span>How long I write code</span></div>
-  <div class="screen two harry"></div>
-  <div class="empty"></div>
-  <div class="empty"></div>
-  <div class="screen three harry"></div>
-  <div class="text-div"><span>Just kidding</span></div>
-  <div class="empty"></div>
-  <div class="screen four harry"></div>
-  <div class="empty"></div>
-  <div class="screen five my-photo"></div>
+  <!-- first section text on fixed bg -->
+  <app-parallax
+    [isFlex]=true
+    bgImageUrl='url(/assets/images/mountain1.webp)'>
+    <h1 class="parallax-content"> A demonstration of the Parallax effect</h1>
+    <section class="parallax-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </section>
+    <section class="parallax-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </section>
+    <section class="parallax-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </section>
+  </app-parallax>
+
+  <!-- second section make-up 3 screens -->
+  <app-parallax class="make-up"
+    [isFlex]=true
+    bgImageUrl='url(/assets/images/make-up1.jpg)'>
+  </app-parallax>
+  <app-parallax class="make-up"
+    [isFlex]=true
+    bgImageUrl='url(/assets/images/make-up2.jpg)'>
+  </app-parallax>
+  <app-parallax class="make-up"
+    [isFlex]=true
+    bgImageUrl='url(/assets/images/make-up3.jpg)'>
+  </app-parallax>
+  
+  <!-- third section parallax and stickies -->
+  <app-parallax
+    class="harry-potter"
+    bgImageUrl='url(/assets/images/harry.jpg)'>
+      <!-- screen one empty with title over bg -->
+      <div class="full-screen">
+        <h1 class="parallax-content">Let's add some stickies</h1>
+      </div>
+      <!-- top left + text + spacers -->
+      <div class="screen one harry"></div>
+      <div class="text-div"><h1>And with this </h1></div>
+      <div class="spacer-line"></div>
+      <!-- top right + text + spacers -->
+      <div class="text-div"><h1>the parallax demo</h1></div>
+      <div class="screen two harry"></div>
+      <div class="spacer-line"></div>
+      <!-- bottom left + text + spacers -->
+      <div class="screen three harry"></div>
+      <div class="text-div"><h1>is now over</h1></div>
+      <div class="spacer-line"></div>
+      <!-- bottom right + text + spacers  -->
+      <div class="text-div"><h1>I hope you liked it</h1></div>
+      <div class="screen four harry"></div>
+      <!-- <div class="empty"></div> -->
+      <div class="screen five my-photo">
+        <button class="back top" (click)="backToTop()">Back to top</button>
+        <button class="back info" (click)="backToInfo()">Back to main page</button>
+      </div>
+  </app-parallax>
 </div>
