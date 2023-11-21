@@ -1,1 +1,23 @@
-<h1>This section is under construction</h1>
+<div class="wrapper">
+    <h1>Recipes</h1>
+    
+    <div class="search-container">
+        <input class="search-bar"
+            #recipeName
+            type="text" 
+            placeholder="Search...">
+        
+        <button class="btn search-btn" type="button" (click)="searchRecipe(recipeName.value)">Search</button>
+    </div>
+    <br>
+        
+
+    <div class="recipes-container">
+        <ng-container *ngFor="let recipe of recipes">
+            <app-recipe
+                [recipe]="recipe">
+            </app-recipe>
+        </ng-container>
+    </div>
+</div>
+    

@@ -1,0 +1,14 @@
+@import "./variables.less";
+button.btn{
+    color:@textColor;
+    background-color:@green;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: large;
+    border:none;
+    border-radius: 1rem;
+    transition-duration: 0.4s;
+    &:hover{
+        box-shadow: 0px 1px 2px 0px rgba(255,255,255, 0.3);
+        background-color:lighten(@green, 5%)
+    }
+}
