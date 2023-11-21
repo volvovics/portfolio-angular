@@ -15,10 +15,6 @@ export class RecipeComponent {
     imageType:'',
     title:'Error finding recipe',
   };
-
-  ngOnInit(){
-    console.log(this.recipe);
-  }
 }
 
 export interface Recipe{

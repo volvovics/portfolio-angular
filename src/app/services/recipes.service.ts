@@ -17,7 +17,6 @@ export class RecipesService {
   private searchString:string = '';
   private searchLimit:number = 5;
   private searchOffset:number = 0;
-  private recipes:Array<any> = [];
 
   public init(){
     console.log('recipe service initialized')

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesService } from '../../services/recipes.service';
 import { Recipe, RecipeComponent } from './recipe/recipe.component';
@@ -12,7 +12,7 @@ import { Recipe, RecipeComponent } from './recipe/recipe.component';
 })
 
 export class RecipesComponent {
-  constructor (private recipesService:RecipesService) {}
+  constructor (private recipesService:RecipesService, private elRef:ElementRef) {}
   private lastSearchString = '';
   public recipes:Array<Recipe> = [
     {id: 654959, title: 'Pasta With Tuna', image: 'https://spoonacular.com/recipeImages/654959-312x231.jpg', imageType: 'jpg'},
@@ -21,9 +21,15 @@ export class RecipesComponent {
     {id: 654883, title: 'Pasta Vegetable Soup', image: 'https://spoonacular.com/recipeImages/654883-312x231.jpg', imageType: 'jpg'},
     {id: 654928, title: 'Pasta With Italian Sausage', image: 'https://spoonacular.com/recipeImages/654928-312x231.jpg', imageType: 'jpg'},
   ];
+  public error:string= 'There was an error retrieving the data';
+  public errorCode:number= 0;
+  private errorDialog?:HTMLDialogElement;
   
   ngOnInit(){
     this.recipesService.init();
+  }
+  ngAfterContentInit(){
+    this.errorDialog = this.elRef.nativeElement.querySelector('dialog.error');
   }
 
   searchRecipe(recipeName:string){
@@ -41,7 +47,9 @@ export class RecipesComponent {
     this.recipes = response.results;
     console.log(this.recipes);
   }
-  handleError(error:any){
-    console.log(error);
+  handleError(errorResponse:any){
+    this.errorCode = errorResponse.error.code;
+    this.error = errorResponse.error.message;
+    this.errorDialog?.showModal();
   }
 }

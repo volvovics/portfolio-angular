@@ -1,9 +1,10 @@
 <div class="wrapper">
     <h1>Recipes</h1>
     <div class="instructions">
-        <p>Search recipes using either single words like "pasta", "fish" or combination "pasta with fish" or "pasta fish" </p>
-        <p>The search is limited to 150 api calls a day</p>
-        <p>The recipes are provided via the free api at https://spoonacular.com/food-api</p>
+        <h2>Instructions, details and limitations</h2>
+        <p>Search recipes using either single words like "pasta", "fish" or combination "pasta with fish" or "pasta fish".</p>
+        <p>The search is limited to 150 api calls a day.</p>
+        <p>The recipes are provided via the free api at https://spoonacular.com/food-api.</p>
     </div>
     
     <div class="search-container">
@@ -24,5 +25,14 @@
     </div>
 
     <button *ngIf="recipes.length > 0" class="btn more-items">More recipes</button>
+
+    <dialog class="details"></dialog>
 </div>
+<dialog class="error">
+    <form method="dialog">
+        <p>{{error}}</p>
+        <p>Error code : {{errorCode}}</p>
+        <button class="btn">Close</button>
+    </form>
+</dialog>
     

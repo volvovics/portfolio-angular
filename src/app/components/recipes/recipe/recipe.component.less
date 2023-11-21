@@ -2,12 +2,20 @@
 @import "../../../../assets/less/common-styles.less";
 
 .recipe-container{
-    display:flex;
+    height:150px;    display:flex;
     justify-content: center;
     align-items: center;
     margin-top:1rem;
-    span{
+    p{
+        margin-left:2rem;
         flex-grow:1;
         font-size:large;
+        text-align: start;
+    }
+    .button-container{
+        flex-basis:200px;
+    }
+    img{
+        max-height: 100%;
     }
 }
