@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,6 +15,11 @@ export class RecipeComponent {
     imageType:'',
     title:'Error finding recipe',
   };
+  @Output() showDetails = new EventEmitter<Recipe>();
+
+  goToDetails(){
+    this.showDetails.emit(this.recipe);
+  }
 }
 
 export interface Recipe{

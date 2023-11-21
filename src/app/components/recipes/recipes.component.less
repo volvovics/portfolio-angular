@@ -35,22 +35,35 @@
             margin-left:1rem;
         }
     }
+    .recipes-container{
+        margin-bottom:2rem;
+    }
     .btn.more-items{
-        margin-top:2rem;
         margin-bottom:2rem;
     }
 }
+
 dialog::backdrop{
     background-color: rgba(0,0,0,0.8);
 }
-dialog.error{
+
+dialog{
     position:fixed;
     padding:2rem;
     border-radius:1rem;
     border:none;
-    background-color:@red;
     color:@textColor;
     button{
         margin-top:2rem;
+    }
+    &.error{
+        background-color:@red;
+    }
+    &.details{
+        color:black;
+        background-color:@disabled;
+        img{
+            display:block;
+        }
     }
 }

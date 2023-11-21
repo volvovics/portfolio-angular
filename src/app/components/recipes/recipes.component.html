@@ -2,9 +2,9 @@
     <h1>Recipes</h1>
     <div class="instructions">
         <h2>Instructions, details and limitations</h2>
-        <p>Search recipes using either single words like "pasta", "fish" or combination "pasta with fish" or "pasta fish".</p>
+        <p>Search recipes using either single words like "pasta", "fish" or a combination "pasta with fish" or "pasta fish".</p>
         <p>The search is limited to 150 api calls a day.</p>
-        <p>The recipes are provided via the free api at https://spoonacular.com/food-api.</p>
+        <p>The recipes are provided via the free tier api at https://spoonacular.com/food-api. (Thank you)</p>
     </div>
     
     <div class="search-container">
@@ -13,20 +13,28 @@
             type="text" 
             placeholder="Search...">
         
-        <button class="btn search-btn" type="button" (click)="searchRecipe(recipeName.value)">Search</button>
+        <button class="btn search-btn" type="button"
+            [disabled]="isLoading"
+            (click)="searchRecipe(recipeName.value)">
+            {{isLoading ? 'Loading recipes' : 'Search' }}
+        </button>
     </div>     
 
     <div class="recipes-container">
         <ng-container *ngFor="let recipe of recipes">
             <app-recipe
-                [recipe]="recipe">
+                [recipe]="recipe"
+                (showDetails)="onShowDetails($event)">
             </app-recipe>
         </ng-container>
     </div>
 
-    <button *ngIf="recipes.length > 0" class="btn more-items">More recipes</button>
-
-    <dialog class="details"></dialog>
+    <button *ngIf="recipes.length > 0 && totalRecipes > recipes.length" 
+            class="btn more-items"
+            [disabled]="isLoading"
+            (click)="getMoreRecipes()" >
+        {{isLoading ? 'Loading recipes' : 'More recipes' }}
+    </button>
 </div>
 <dialog class="error">
     <form method="dialog">
@@ -35,4 +43,13 @@
         <button class="btn">Close</button>
     </form>
 </dialog>
+<dialog class="details">
+    <form method="dialog">
+        <h1>Details page still under construction</h1>
+        <h2>{{selectedRecipe.title}}</h2>
+        <img [src]="selectedRecipe.image" alt="selectedRecipe.title">
+        <button class="btn">Close</button>
+    </form>
+</dialog>
+
     

@@ -44,15 +44,10 @@ export class RecipesService {
     
     return this.http.get(this.url ,{ headers:this.headers, params:this.params});
   }
-
-  getMore(){
-    this.getRecipes(this.searchString, true);
-  }
-
+ 
   setParams(){
     this.params = this.params.set('query',this.searchString);
     this.params = this.params.set('number',this.searchLimit);
     this.params = this.params.set('offset',this.searchOffset);
-    console.log(this.params);
   }
 }
