@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class RecipesService {
   constructor(private http: HttpClient) { }
 
   private url:string = 'https://api.spoonacular.com/recipes/complexSearch';
-  private apiKey = 'b861168bc968445b8268f1dba63a1eaa';
+  private apiKey = environment.apiUrl;
   private params:any = new HttpParams;
   private headers:HttpHeaders = new HttpHeaders;
    

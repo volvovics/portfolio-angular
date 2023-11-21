@@ -1,5 +1,10 @@
 <div class="wrapper">
     <h1>Recipes</h1>
+    <div class="instructions">
+        <p>Search recipes using either single words like "pasta", "fish" or combination "pasta with fish" or "pasta fish" </p>
+        <p>The search is limited to 150 api calls a day</p>
+        <p>The recipes are provided via the free api at https://spoonacular.com/food-api</p>
+    </div>
     
     <div class="search-container">
         <input class="search-bar"
@@ -8,9 +13,7 @@
             placeholder="Search...">
         
         <button class="btn search-btn" type="button" (click)="searchRecipe(recipeName.value)">Search</button>
-    </div>
-    <br>
-        
+    </div>     
 
     <div class="recipes-container">
         <ng-container *ngFor="let recipe of recipes">
@@ -19,5 +22,7 @@
             </app-recipe>
         </ng-container>
     </div>
+
+    <button *ngIf="recipes.length > 0" class="btn more-items">More recipes</button>
 </div>
     
